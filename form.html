@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+#a{
+    background-color: aqua;
+    text-align: center;
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 10%;
+}
+#b{
+    background-color: aqua;
+    text-align: center;
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 10%;
+}
+.bb{
+    display: none;
+}
+</style>
+<body>
+
+    <div class="container border box">
+
+        <form name="reform" onsubmit="return revalid()" action="con1.php" method="post">
+            <div id="a">
+            <h1> Registartion From</h1><br><br>
+            <label>Enter your Name</label><br>
+            <input type="text" placeholder="Enter your Name" name="Name" ><br><br>
+            <label>Enter your Location</label><br><br>
+            <input type="text" placeholder="Enter your Location" name="Location" ><br><br>
+            <label>Enter your Mobile No</label><br><br>
+            <input type="number" placeholder="Enter your Mobile" name="Mobile"><br><br>
+            <label>Enter your Email-No</label><br><br>
+            <input type="email" placeholder="Enter your Email-No" name="Email"><br><br>
+            <button type="submit" > Submite</button></div>
+        </form>
+
+       
+
+    </div>
+
+    <div class="container border box" >
+
+        <form name="beform" onsubmit="return bevalid()" action="con2.php" method="post">
+            <div id="b" class="bb">
+            <h1> login From</h1><br><br>
+            <label>Enter your Email-No</label><br>
+            <input type="email" placeholder="Enter your Email" name="Email" ><br><br>
+            <label>Enter your password</label><br><br>
+            <input type="text" placeholder="Enter your password" name="password"><br><br>
+            <button type="submit" > Submite</button>
+        </form>
+    </div>
+
+
+    </div>
+    <button type="button" onclick=" nam()">click</button>
+    <script>
+        function nam(){
+
+            var x = document.getElementById('a');
+            var y = document.getElementById('b');
+           
+            x.classList.toggle('bb');
+            y.classList.toggle('bb');
+        }
+        function revalid(){
+            var n = document.forms['reform']['Name'].value;
+            var m = document.forms['reform']['Location'].value;
+            var b = document.forms['reform']['Mobile'].value;
+            var f = document.forms['reform']['Email'].value;
+           var pv = b.length;
+            if(n === ""|| m === "" || b === "" || f === ""){
+                alert("Must Filled")
+            }
+
+           if(pv!= 11){
+            alert('phone number must be 11digit');
+            return false;
+           }
+           else if(b.charAt('0') != '0'|| b.charAt ('1') != '1' || b.charAt ('2') != '7' ){
+            alert('phone number must start with "017"');
+           
+            return false;
+           }
+            return;
+        }
+        function bevalid(){
+            var c = document.forms['beform']['Email'].value;
+            var e = document.forms['beform']['password'].value;
+            if(c === ""|| e === ""){
+                alert ("Must Filled")
+            }
+            
+            return;
+        }
+    </script>
+    
+</body>
+</html>
